@@ -1,5 +1,3 @@
-# Academic-Organization-Ontology
-
 # Academic Organization Ontology (OWL 2.0)
 
 ## Project Overview
