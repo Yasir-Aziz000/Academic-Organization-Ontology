@@ -1,29 +1,63 @@
 # Academic Organization Ontology (OWL 2.0)
 
 ## Project Overview
-This ontology provides a formal representation of an Academic Organization. It defines the relationships between personnel (Professors, Students), organizational structures (Departments), and academic activities (Courses). 
+This ontology provides a formal representation of an Academic Organization. It models the relationships between personnel (Professors, Lecturers, Administrators, Deans, Students), organizational structures (Faculties, Departments, Research Groups), academic activities (Courses) and physical spaces (Classrooms, Labs).
 
-**Developed by:** Aun Ali  
+**Developed by:** Yasir Aziz  
 **Course:** Knowledge Representation  
 **Professor:** Matteo Cristani  
 **Tool used:** Protégé 5.x (OWL 2.0 Specification)
 
-## Technical Features
-The ontology implements several advanced Semantic Web features to ensure logical consistency and automated inference:
+## Class Hierarchy
+```
+owl:Thing
+├── Person
+│   ├── Staff
+│   │   ├── Professor        (≡ teaches some Course)
+│   │   ├── Lecturer
+│   │   └── Administrator
+│   │       └── Dean
+│   └── Student              (= exactly 1 hasStudentID)
+│       ├── Undergraduate
+│       └── Graduate
+│           └── PhD_Student
+├── Organization
+│   ├── Faculty
+│   ├── Department
+│   └── Research_Group
+├── Course
+└── Location
+    ├── Classroom
+    └── Lab
+```
 
-* **Class Hierarchy:** Organized under `owl:Thing`, featuring structured subclasses for `Person`, `Organization`, `Course`, and `Location`.
-* **Disjointness Axioms:** Ensured that top-level classes are disjoint (e.g., a `Course` cannot be a `Person`).
+## Technical Features
+The ontology implements a wide range of Semantic Web / OWL 2 features to enable automated inference:
+
+* **Class Hierarchy & Disjointness:** Top-level classes (`Person`, `Organization`, `Course`, `Location`) are mutually disjoint. Additional disjointness is asserted between `Staff`/`Student`, `Undergraduate`/`Graduate`, and `Classroom`/`Lab`.
 * **Object Properties:**
-    * `teaches` / `isTaughtBy`: An **Inverse Property** relationship allowing bidirectional inference.
-    * `enrolledIn`: Links Students to Courses.
-    * `worksIn`: Links Staff to Departments.
-* **Property Chains:** Implemented `worksIn o isPartOf` to allow the reasoner to infer organizational membership across hierarchies.
-* **Data Properties:** Used **Functional Properties** such as `hasFullName` and `hasStudentID` with `xsd` data typing (string/integer).
+    * `teaches` / `isTaughtBy` — **inverse** pair (bidirectional inference).
+    * `advisedBy` / `advises` — **inverse** pair linking students and supervisors.
+    * `enrolledIn` / `hasStudent` — **inverse** pair.
+    * `isPartOf` — **transitive** (Department ⊑ Faculty membership propagates).
+    * `hasPrerequisite` — **transitive** (prerequisite chains are inferred).
+    * `worksIn` — uses the **property chain** `worksIn ∘ isPartOf` to infer membership across the org hierarchy.
+    * `headedBy` — **functional** object property (a department has one dean).
+    * `locatedIn`, `memberOf` — additional relations.
+* **Data Properties:** **Functional** properties `hasFullName`, `hasEmail`, `hasStudentID`, `hasGPA`, plus `hasYear`, `hasCredits`, `hasCapacity`, all with `xsd` datatyping.
+* **Restrictions:** `Professor ⊑ teaches some Course` (existential) and `Student ⊑ = 1 hasStudentID` (qualified cardinality).
+* **Annotations:** `rdfs:label` and `rdfs:comment` on the main classes.
+
+## Sample Inferences (run the reasoner to see these)
+* `Prof_Smith worksIn ComputerScience_Dept`, and `ComputerScience_Dept isPartOf Faculty_of_Science` ⇒ **`Prof_Smith worksIn Faculty_of_Science`** (property chain).
+* `Advanced_Algorithms hasPrerequisite Data_Structures hasPrerequisite Intro_Programming` ⇒ **`Advanced_Algorithms hasPrerequisite Intro_Programming`** (transitivity).
+* `Prof_Smith teaches Intro_Programming` ⇒ **`Intro_Programming isTaughtBy Prof_Smith`** (inverse).
+* `Carol` is a `PhD_Student` ⇒ inferred to be a `Graduate`, `Student`, and `Person`.
 
 ## Reasoning and Consistency
-The ontology has been validated using the **HermiT Reasoner**. All classes are consistent, and the inverse properties successfully infer relationships between individuals (e.g., Professor Snape and Potions 101).
+The ontology is designed to be **consistent** under the **HermiT** reasoner.
 
-## How to View
-1. Download the `Academic_Organization_Ontology.owl` file.
-2. Open the file in **Protégé**.
-3. Start the Reasoner (HermiT or Pellet) to view inferred relationships.
+## How to View / Verify
+1. Open `Academic_Organization.rdf` (or `Academic_Organization.owx`) in **Protégé**.
+2. Go to **Reasoner → HermiT** and click **Start reasoner**.
+3. Confirm there are **no red (inconsistent) classes** and inspect the inferred (yellow) axioms listed above.

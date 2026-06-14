@@ -1,19 +1,21 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.semanticweb.org/murta/ontologies/2026/1/untitled-ontology-3/"
-     xml:base="http://www.semanticweb.org/murta/ontologies/2026/1/untitled-ontology-3/"
+<rdf:RDF xmlns="http://www.semanticweb.org/yaziz/ontologies/academic-organization#"
+     xml:base="http://www.semanticweb.org/yaziz/ontologies/academic-organization#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:academic-organization="http://www.semanticweb.org/aunali/ontologies/academic-organization#">
-    <owl:Ontology rdf:about="http://www.semanticweb.org/aunali/ontologies/academic-organization">
-        <owl:versionIRI rdf:resource="http://www.semanticweb.org/yourname/ontologies/academic-organization/1.0.0"/>
+     xmlns:ao="http://www.semanticweb.org/yaziz/ontologies/academic-organization#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization">
+        <owl:versionIRI rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization/2.0.0"/>
+        <rdfs:comment>An ontology describing the structure of an academic organization: people (staff and students), organizational units, courses and locations. Developed by Yasir Aziz for the Knowledge Representation course.</rdfs:comment>
+        <rdfs:label>Academic Organization Ontology</rdfs:label>
     </owl:Ontology>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Object Properties
@@ -21,55 +23,104 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
 
-
-    <!-- http://www.semanticweb.org/aunali/ontologies/academic-organization#enrolledIn -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aunali/ontologies/academic-organization#enrolledIn">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/aunali/ontologies/academic-organization#Student"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/aunali/ontologies/academic-organization#Course"/>
+    <!-- teaches -->
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#teaches">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#isTaughtBy"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Professor"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Course"/>
+        <rdfs:label>teaches</rdfs:label>
     </owl:ObjectProperty>
-    
 
-
-    <!-- http://www.semanticweb.org/aunali/ontologies/academic-organization#isPartOf -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aunali/ontologies/academic-organization#isPartOf"/>
-    
-
-
-    <!-- http://www.semanticweb.org/aunali/ontologies/academic-organization#isTaughtBy -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aunali/ontologies/academic-organization#isTaughtBy">
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/aunali/ontologies/academic-organization#teaches"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/aunali/ontologies/academic-organization#Course"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/aunali/ontologies/academic-organization#Professor"/>
+    <!-- isTaughtBy (inverse of teaches) -->
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#isTaughtBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Course"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Professor"/>
+        <rdfs:label>isTaughtBy</rdfs:label>
     </owl:ObjectProperty>
-    
 
-
-    <!-- http://www.semanticweb.org/aunali/ontologies/academic-organization#teaches -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aunali/ontologies/academic-organization#teaches">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/aunali/ontologies/academic-organization#Professor"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/aunali/ontologies/academic-organization#Course"/>
+    <!-- enrolledIn -->
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#enrolledIn">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#hasStudent"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Student"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Course"/>
+        <rdfs:label>enrolledIn</rdfs:label>
     </owl:ObjectProperty>
-    
 
+    <!-- hasStudent (inverse of enrolledIn) -->
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#hasStudent">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Course"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Student"/>
+        <rdfs:label>hasStudent</rdfs:label>
+    </owl:ObjectProperty>
 
-    <!-- http://www.semanticweb.org/aunali/ontologies/academic-organization#worksIn -->
+    <!-- advisedBy -->
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#advisedBy">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#advises"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Student"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Professor"/>
+        <rdfs:label>advisedBy</rdfs:label>
+    </owl:ObjectProperty>
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aunali/ontologies/academic-organization#worksIn">
+    <!-- advises (inverse of advisedBy) -->
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#advises">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Professor"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Student"/>
+        <rdfs:label>advises</rdfs:label>
+    </owl:ObjectProperty>
+
+    <!-- isPartOf (transitive) -->
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#isPartOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Organization"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Organization"/>
+        <rdfs:label>isPartOf</rdfs:label>
+    </owl:ObjectProperty>
+
+    <!-- worksIn (with property chain worksIn o isPartOf) -->
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#worksIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Staff"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Organization"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/aunali/ontologies/academic-organization#worksIn"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/aunali/ontologies/academic-organization#isPartOf"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#worksIn"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#isPartOf"/>
         </owl:propertyChainAxiom>
+        <rdfs:label>worksIn</rdfs:label>
     </owl:ObjectProperty>
-    
+
+    <!-- hasPrerequisite (transitive) -->
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#hasPrerequisite">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Course"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Course"/>
+        <rdfs:label>hasPrerequisite</rdfs:label>
+    </owl:ObjectProperty>
+
+    <!-- locatedIn -->
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#locatedIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Course"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Location"/>
+        <rdfs:label>locatedIn</rdfs:label>
+    </owl:ObjectProperty>
+
+    <!-- memberOf -->
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#memberOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Person"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Research_Group"/>
+        <rdfs:label>memberOf</rdfs:label>
+    </owl:ObjectProperty>
+
+    <!-- headedBy -->
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#headedBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Department"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Dean"/>
+        <rdfs:label>headedBy</rdfs:label>
+    </owl:ObjectProperty>
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Data properties
@@ -77,39 +128,63 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
 
-
-    <!-- http://www.semanticweb.org/aunali/ontologies/academic-organization#hasCredits -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aunali/ontologies/academic-organization#hasCredits">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/aunali/ontologies/academic-organization#Course"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/aunali/ontologies/academic-organization#hasFullName -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aunali/ontologies/academic-organization#hasFullName">
+    <!-- hasFullName (functional) -->
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#hasFullName">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/aunali/ontologies/academic-organization#Person"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Person"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>hasFullName</rdfs:label>
     </owl:DatatypeProperty>
-    
 
-
-    <!-- http://www.semanticweb.org/aunali/ontologies/academic-organization#hasStudentID -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aunali/ontologies/academic-organization#hasStudentID">
+    <!-- hasEmail (functional) -->
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#hasEmail">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/aunali/ontologies/academic-organization#Student"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>hasEmail</rdfs:label>
     </owl:DatatypeProperty>
-    
+
+    <!-- hasStudentID (functional) -->
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#hasStudentID">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Student"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label>hasStudentID</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <!-- hasGPA (functional) -->
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#hasGPA">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Student"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:label>hasGPA</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <!-- hasYear -->
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#hasYear">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Student"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label>hasYear</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <!-- hasCredits -->
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#hasCredits">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label>hasCredits</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <!-- hasCapacity -->
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#hasCapacity">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Location"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label>hasCapacity</rdfs:label>
+    </owl:DatatypeProperty>
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Classes
@@ -117,79 +192,131 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
 
-
-    <!-- http://www.semanticweb.org/aunali/ontologies/academic-organization#Course -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/aunali/ontologies/academic-organization#Course"/>
-    
-
-
-    <!-- http://www.semanticweb.org/aunali/ontologies/academic-organization#Department -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/aunali/ontologies/academic-organization#Department">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aunali/ontologies/academic-organization#Organization"/>
+    <!-- Person -->
+    <owl:Class rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Person">
+        <rdfs:label>Person</rdfs:label>
+        <rdfs:comment>Any human being within the academic organization.</rdfs:comment>
     </owl:Class>
-    
 
+    <!-- Staff -->
+    <owl:Class rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Staff">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Person"/>
+        <rdfs:label>Staff</rdfs:label>
+    </owl:Class>
 
-    <!-- http://www.semanticweb.org/aunali/ontologies/academic-organization#Location -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/aunali/ontologies/academic-organization#Location"/>
-    
-
-
-    <!-- http://www.semanticweb.org/aunali/ontologies/academic-organization#Organization -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/aunali/ontologies/academic-organization#Organization"/>
-    
-
-
-    <!-- http://www.semanticweb.org/aunali/ontologies/academic-organization#Person -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/aunali/ontologies/academic-organization#Person"/>
-    
-
-
-    <!-- http://www.semanticweb.org/aunali/ontologies/academic-organization#Professor -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/aunali/ontologies/academic-organization#Professor">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aunali/ontologies/academic-organization#Staff"/>
+    <!-- Professor -->
+    <owl:Class rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Professor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Staff"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/aunali/ontologies/academic-organization#teaches"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aunali/ontologies/academic-organization#Course"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#teaches"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Course"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:label>Professor</rdfs:label>
+        <rdfs:comment>A member of staff who teaches at least one course.</rdfs:comment>
     </owl:Class>
-    
 
-
-    <!-- http://www.semanticweb.org/aunali/ontologies/academic-organization#Staff -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/aunali/ontologies/academic-organization#Staff">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aunali/ontologies/academic-organization#Person"/>
+    <!-- Lecturer -->
+    <owl:Class rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Lecturer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Staff"/>
+        <rdfs:label>Lecturer</rdfs:label>
     </owl:Class>
-    
 
+    <!-- Administrator -->
+    <owl:Class rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Administrator">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Staff"/>
+        <rdfs:label>Administrator</rdfs:label>
+    </owl:Class>
 
-    <!-- http://www.semanticweb.org/aunali/ontologies/academic-organization#Student -->
+    <!-- Dean -->
+    <owl:Class rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Dean">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Administrator"/>
+        <rdfs:label>Dean</rdfs:label>
+    </owl:Class>
 
-    <owl:Class rdf:about="http://www.semanticweb.org/aunali/ontologies/academic-organization#Student">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aunali/ontologies/academic-organization#Person"/>
+    <!-- Student -->
+    <owl:Class rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Student">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Person"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/aunali/ontologies/academic-organization#hasStudentID"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#hasStudentID"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:label>Student</rdfs:label>
+        <rdfs:comment>A person enrolled in the organization who has exactly one student ID.</rdfs:comment>
     </owl:Class>
-    
+
+    <!-- Undergraduate -->
+    <owl:Class rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Undergraduate">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Student"/>
+        <rdfs:label>Undergraduate</rdfs:label>
+    </owl:Class>
+
+    <!-- Graduate -->
+    <owl:Class rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Graduate">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Student"/>
+        <rdfs:label>Graduate</rdfs:label>
+    </owl:Class>
+
+    <!-- PhD_Student -->
+    <owl:Class rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#PhD_Student">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Graduate"/>
+        <rdfs:label>PhD_Student</rdfs:label>
+    </owl:Class>
+
+    <!-- Organization -->
+    <owl:Class rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Organization">
+        <rdfs:label>Organization</rdfs:label>
+    </owl:Class>
+
+    <!-- Department -->
+    <owl:Class rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Department">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Organization"/>
+        <rdfs:label>Department</rdfs:label>
+    </owl:Class>
+
+    <!-- Faculty -->
+    <owl:Class rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Faculty">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Organization"/>
+        <rdfs:label>Faculty</rdfs:label>
+    </owl:Class>
+
+    <!-- Research_Group -->
+    <owl:Class rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Research_Group">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Organization"/>
+        <rdfs:label>Research_Group</rdfs:label>
+    </owl:Class>
+
+    <!-- Course -->
+    <owl:Class rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Course">
+        <rdfs:label>Course</rdfs:label>
+        <rdfs:comment>An academic course taught within the organization.</rdfs:comment>
+    </owl:Class>
+
+    <!-- Location -->
+    <owl:Class rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Location">
+        <rdfs:label>Location</rdfs:label>
+    </owl:Class>
+
+    <!-- Classroom -->
+    <owl:Class rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Classroom">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Location"/>
+        <rdfs:label>Classroom</rdfs:label>
+    </owl:Class>
+
+    <!-- Lab -->
+    <owl:Class rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Lab">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Location"/>
+        <rdfs:label>Lab</rdfs:label>
+    </owl:Class>
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Individuals
@@ -197,32 +324,149 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
 
-
-    <!-- http://www.semanticweb.org/aunali/ontologies/academic-organization#Potions_101 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/aunali/ontologies/academic-organization#Potions_101">
-        <rdf:type rdf:resource="http://www.semanticweb.org/aunali/ontologies/academic-organization#Course"/>
-        <academic-organization:hasCredits rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5</academic-organization:hasCredits>
+    <!-- Faculty_of_Science -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Faculty_of_Science">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Faculty"/>
     </owl:NamedIndividual>
-    
 
-
-    <!-- http://www.semanticweb.org/aunali/ontologies/academic-organization#Professor_Snape -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/aunali/ontologies/academic-organization#Professor_Snape">
-        <rdf:type rdf:resource="http://www.semanticweb.org/aunali/ontologies/academic-organization#Professor"/>
-        <academic-organization:teaches rdf:resource="http://www.semanticweb.org/aunali/ontologies/academic-organization#Potions_101"/>
-        <academic-organization:hasFullName>Severus Snape</academic-organization:hasFullName>
+    <!-- ComputerScience_Dept -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#ComputerScience_Dept">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Department"/>
+        <ao:isPartOf rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Faculty_of_Science"/>
+        <ao:headedBy rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Dean_White"/>
     </owl:NamedIndividual>
-    
+
+    <!-- Mathematics_Dept -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Mathematics_Dept">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Department"/>
+        <ao:isPartOf rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Faculty_of_Science"/>
+    </owl:NamedIndividual>
+
+    <!-- AI_Research_Group -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#AI_Research_Group">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Research_Group"/>
+        <ao:isPartOf rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#ComputerScience_Dept"/>
+    </owl:NamedIndividual>
+
+    <!-- Prof_Smith -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Prof_Smith">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Professor"/>
+        <ao:teaches rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Intro_Programming"/>
+        <ao:teaches rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Data_Structures"/>
+        <ao:worksIn rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#ComputerScience_Dept"/>
+        <ao:hasFullName>John Smith</ao:hasFullName>
+        <ao:hasEmail>smith@university.edu</ao:hasEmail>
+    </owl:NamedIndividual>
+
+    <!-- Prof_Jones -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Prof_Jones">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Professor"/>
+        <ao:teaches rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Calculus_I"/>
+        <ao:worksIn rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Mathematics_Dept"/>
+        <ao:hasFullName>Mary Jones</ao:hasFullName>
+        <ao:hasEmail>jones@university.edu</ao:hasEmail>
+    </owl:NamedIndividual>
+
+    <!-- Lecturer_Brown -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Lecturer_Brown">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Lecturer"/>
+        <ao:worksIn rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Mathematics_Dept"/>
+        <ao:hasFullName>Robert Brown</ao:hasFullName>
+        <ao:hasEmail>brown@university.edu</ao:hasEmail>
+    </owl:NamedIndividual>
+
+    <!-- Dean_White -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Dean_White">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Dean"/>
+        <ao:worksIn rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#ComputerScience_Dept"/>
+        <ao:hasFullName>Emily White</ao:hasFullName>
+        <ao:hasEmail>white@university.edu</ao:hasEmail>
+    </owl:NamedIndividual>
+
+    <!-- Alice -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Alice">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Undergraduate"/>
+        <ao:enrolledIn rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Intro_Programming"/>
+        <ao:advisedBy rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Prof_Smith"/>
+        <ao:hasFullName>Alice Green</ao:hasFullName>
+        <ao:hasEmail>alice@student.university.edu</ao:hasEmail>
+        <ao:hasStudentID rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1001</ao:hasStudentID>
+        <ao:hasGPA rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.8</ao:hasGPA>
+        <ao:hasYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</ao:hasYear>
+    </owl:NamedIndividual>
+
+    <!-- Bob -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Bob">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Graduate"/>
+        <ao:enrolledIn rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Data_Structures"/>
+        <ao:advisedBy rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Prof_Jones"/>
+        <ao:hasFullName>Bob Taylor</ao:hasFullName>
+        <ao:hasEmail>bob@student.university.edu</ao:hasEmail>
+        <ao:hasStudentID rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1002</ao:hasStudentID>
+        <ao:hasGPA rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.5</ao:hasGPA>
+        <ao:hasYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ao:hasYear>
+    </owl:NamedIndividual>
+
+    <!-- Carol -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Carol">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#PhD_Student"/>
+        <ao:enrolledIn rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Calculus_I"/>
+        <ao:advisedBy rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Prof_Jones"/>
+        <ao:memberOf rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#AI_Research_Group"/>
+        <ao:hasFullName>Carol King</ao:hasFullName>
+        <ao:hasEmail>carol@student.university.edu</ao:hasEmail>
+        <ao:hasStudentID rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1003</ao:hasStudentID>
+        <ao:hasGPA rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.9</ao:hasGPA>
+        <ao:hasYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</ao:hasYear>
+    </owl:NamedIndividual>
+
+    <!-- Intro_Programming -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Intro_Programming">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Course"/>
+        <ao:locatedIn rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Room_A101"/>
+        <ao:hasCredits rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</ao:hasCredits>
+    </owl:NamedIndividual>
+
+    <!-- Data_Structures -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Data_Structures">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Course"/>
+        <ao:hasPrerequisite rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Intro_Programming"/>
+        <ao:locatedIn rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Lab_B202"/>
+        <ao:hasCredits rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</ao:hasCredits>
+    </owl:NamedIndividual>
+
+    <!-- Advanced_Algorithms -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Advanced_Algorithms">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Course"/>
+        <ao:hasPrerequisite rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Data_Structures"/>
+        <ao:hasCredits rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</ao:hasCredits>
+    </owl:NamedIndividual>
+
+    <!-- Calculus_I -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Calculus_I">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Course"/>
+        <ao:hasCredits rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</ao:hasCredits>
+    </owl:NamedIndividual>
+
+    <!-- Room_A101 -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Room_A101">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Classroom"/>
+        <ao:hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</ao:hasCapacity>
+    </owl:NamedIndividual>
+
+    <!-- Lab_B202 -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Lab_B202">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Lab"/>
+        <ao:hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</ao:hasCapacity>
+    </owl:NamedIndividual>
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
-    // General axioms
+    // General axioms (Disjointness)
     //
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
@@ -230,15 +474,36 @@
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/aunali/ontologies/academic-organization#Course"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/aunali/ontologies/academic-organization#Location"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/aunali/ontologies/academic-organization#Organization"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/aunali/ontologies/academic-organization#Person"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Course"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Location"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Organization"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Person"/>
         </owl:members>
     </rdf:Description>
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Department"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Faculty"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Research_Group"/>
+        </owl:members>
+    </rdf:Description>
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Student">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Staff"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Undergraduate">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Graduate"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Classroom">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/yaziz/ontologies/academic-organization#Lab"/>
+    </owl:Class>
+
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
-
+<!-- Generated for Yasir Aziz - Knowledge Representation course -->

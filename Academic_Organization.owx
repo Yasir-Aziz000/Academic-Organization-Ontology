@@ -1,80 +1,84 @@
 <?xml version="1.0"?>
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="http://www.semanticweb.org/aunali/ontologies/academic-organization"
+     xml:base="http://www.semanticweb.org/yaziz/ontologies/academic-organization"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="http://www.semanticweb.org/aunali/ontologies/academic-organization"
-     versionIRI="http://www.semanticweb.org/yourname/ontologies/academic-organization/1.0.0">
-    <Prefix name="" IRI="http://www.semanticweb.org/murta/ontologies/2026/1/untitled-ontology-3/"/>
+     ontologyIRI="http://www.semanticweb.org/yaziz/ontologies/academic-organization"
+     versionIRI="http://www.semanticweb.org/yaziz/ontologies/academic-organization/2.0.0">
+    <Prefix name="" IRI="http://www.semanticweb.org/yaziz/ontologies/academic-organization#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
-    <Declaration>
-        <Class IRI="#Course"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Department"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Location"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Organization"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Person"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Professor"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Staff"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Student"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#enrolledIn"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#isPartOf"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#isTaughtBy"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#teaches"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#worksIn"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#hasCredits"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#hasFullName"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#hasStudentID"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Potions_101"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Professor_Snape"/>
-    </Declaration>
-    <SubClassOf>
-        <Class IRI="#Department"/>
-        <Class IRI="#Organization"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Professor"/>
-        <Class IRI="#Staff"/>
-    </SubClassOf>
+
+    <!-- Class declarations -->
+    <Declaration><Class IRI="#Person"/></Declaration>
+    <Declaration><Class IRI="#Staff"/></Declaration>
+    <Declaration><Class IRI="#Professor"/></Declaration>
+    <Declaration><Class IRI="#Lecturer"/></Declaration>
+    <Declaration><Class IRI="#Administrator"/></Declaration>
+    <Declaration><Class IRI="#Dean"/></Declaration>
+    <Declaration><Class IRI="#Student"/></Declaration>
+    <Declaration><Class IRI="#Undergraduate"/></Declaration>
+    <Declaration><Class IRI="#Graduate"/></Declaration>
+    <Declaration><Class IRI="#PhD_Student"/></Declaration>
+    <Declaration><Class IRI="#Organization"/></Declaration>
+    <Declaration><Class IRI="#Department"/></Declaration>
+    <Declaration><Class IRI="#Faculty"/></Declaration>
+    <Declaration><Class IRI="#Research_Group"/></Declaration>
+    <Declaration><Class IRI="#Course"/></Declaration>
+    <Declaration><Class IRI="#Location"/></Declaration>
+    <Declaration><Class IRI="#Classroom"/></Declaration>
+    <Declaration><Class IRI="#Lab"/></Declaration>
+
+    <!-- Object property declarations -->
+    <Declaration><ObjectProperty IRI="#teaches"/></Declaration>
+    <Declaration><ObjectProperty IRI="#isTaughtBy"/></Declaration>
+    <Declaration><ObjectProperty IRI="#enrolledIn"/></Declaration>
+    <Declaration><ObjectProperty IRI="#hasStudent"/></Declaration>
+    <Declaration><ObjectProperty IRI="#advisedBy"/></Declaration>
+    <Declaration><ObjectProperty IRI="#advises"/></Declaration>
+    <Declaration><ObjectProperty IRI="#isPartOf"/></Declaration>
+    <Declaration><ObjectProperty IRI="#worksIn"/></Declaration>
+    <Declaration><ObjectProperty IRI="#hasPrerequisite"/></Declaration>
+    <Declaration><ObjectProperty IRI="#locatedIn"/></Declaration>
+    <Declaration><ObjectProperty IRI="#memberOf"/></Declaration>
+    <Declaration><ObjectProperty IRI="#headedBy"/></Declaration>
+
+    <!-- Data property declarations -->
+    <Declaration><DataProperty IRI="#hasFullName"/></Declaration>
+    <Declaration><DataProperty IRI="#hasEmail"/></Declaration>
+    <Declaration><DataProperty IRI="#hasStudentID"/></Declaration>
+    <Declaration><DataProperty IRI="#hasGPA"/></Declaration>
+    <Declaration><DataProperty IRI="#hasYear"/></Declaration>
+    <Declaration><DataProperty IRI="#hasCredits"/></Declaration>
+    <Declaration><DataProperty IRI="#hasCapacity"/></Declaration>
+
+    <!-- Individual declarations -->
+    <Declaration><NamedIndividual IRI="#Faculty_of_Science"/></Declaration>
+    <Declaration><NamedIndividual IRI="#ComputerScience_Dept"/></Declaration>
+    <Declaration><NamedIndividual IRI="#Mathematics_Dept"/></Declaration>
+    <Declaration><NamedIndividual IRI="#AI_Research_Group"/></Declaration>
+    <Declaration><NamedIndividual IRI="#Prof_Smith"/></Declaration>
+    <Declaration><NamedIndividual IRI="#Prof_Jones"/></Declaration>
+    <Declaration><NamedIndividual IRI="#Lecturer_Brown"/></Declaration>
+    <Declaration><NamedIndividual IRI="#Dean_White"/></Declaration>
+    <Declaration><NamedIndividual IRI="#Alice"/></Declaration>
+    <Declaration><NamedIndividual IRI="#Bob"/></Declaration>
+    <Declaration><NamedIndividual IRI="#Carol"/></Declaration>
+    <Declaration><NamedIndividual IRI="#Intro_Programming"/></Declaration>
+    <Declaration><NamedIndividual IRI="#Data_Structures"/></Declaration>
+    <Declaration><NamedIndividual IRI="#Advanced_Algorithms"/></Declaration>
+    <Declaration><NamedIndividual IRI="#Calculus_I"/></Declaration>
+    <Declaration><NamedIndividual IRI="#Room_A101"/></Declaration>
+    <Declaration><NamedIndividual IRI="#Lab_B202"/></Declaration>
+
+    <!-- Class hierarchy -->
+    <SubClassOf><Class IRI="#Staff"/><Class IRI="#Person"/></SubClassOf>
+    <SubClassOf><Class IRI="#Professor"/><Class IRI="#Staff"/></SubClassOf>
     <SubClassOf>
         <Class IRI="#Professor"/>
         <ObjectSomeValuesFrom>
@@ -82,14 +86,10 @@
             <Class IRI="#Course"/>
         </ObjectSomeValuesFrom>
     </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Staff"/>
-        <Class IRI="#Person"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Student"/>
-        <Class IRI="#Person"/>
-    </SubClassOf>
+    <SubClassOf><Class IRI="#Lecturer"/><Class IRI="#Staff"/></SubClassOf>
+    <SubClassOf><Class IRI="#Administrator"/><Class IRI="#Staff"/></SubClassOf>
+    <SubClassOf><Class IRI="#Dean"/><Class IRI="#Administrator"/></SubClassOf>
+    <SubClassOf><Class IRI="#Student"/><Class IRI="#Person"/></SubClassOf>
     <SubClassOf>
         <Class IRI="#Student"/>
         <DataExactCardinality cardinality="1">
@@ -97,63 +97,112 @@
             <Datatype abbreviatedIRI="xsd:integer"/>
         </DataExactCardinality>
     </SubClassOf>
+    <SubClassOf><Class IRI="#Undergraduate"/><Class IRI="#Student"/></SubClassOf>
+    <SubClassOf><Class IRI="#Graduate"/><Class IRI="#Student"/></SubClassOf>
+    <SubClassOf><Class IRI="#PhD_Student"/><Class IRI="#Graduate"/></SubClassOf>
+    <SubClassOf><Class IRI="#Department"/><Class IRI="#Organization"/></SubClassOf>
+    <SubClassOf><Class IRI="#Faculty"/><Class IRI="#Organization"/></SubClassOf>
+    <SubClassOf><Class IRI="#Research_Group"/><Class IRI="#Organization"/></SubClassOf>
+    <SubClassOf><Class IRI="#Classroom"/><Class IRI="#Location"/></SubClassOf>
+    <SubClassOf><Class IRI="#Lab"/><Class IRI="#Location"/></SubClassOf>
+
+    <!-- Disjointness -->
     <DisjointClasses>
         <Class IRI="#Course"/>
         <Class IRI="#Location"/>
         <Class IRI="#Organization"/>
         <Class IRI="#Person"/>
     </DisjointClasses>
-    <ClassAssertion>
-        <Class IRI="#Course"/>
-        <NamedIndividual IRI="#Potions_101"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Professor"/>
-        <NamedIndividual IRI="#Professor_Snape"/>
-    </ClassAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#teaches"/>
-        <NamedIndividual IRI="#Professor_Snape"/>
-        <NamedIndividual IRI="#Potions_101"/>
-    </ObjectPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasCredits"/>
-        <NamedIndividual IRI="#Potions_101"/>
-        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasFullName"/>
-        <NamedIndividual IRI="#Professor_Snape"/>
-        <Literal>Severus Snape</Literal>
-    </DataPropertyAssertion>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="#isTaughtBy"/>
-        <ObjectProperty IRI="#teaches"/>
-    </InverseObjectProperties>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#enrolledIn"/>
-        <Class IRI="#Student"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#isTaughtBy"/>
-        <Class IRI="#Course"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#teaches"/>
-        <Class IRI="#Professor"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#enrolledIn"/>
-        <Class IRI="#Course"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#isTaughtBy"/>
-        <Class IRI="#Professor"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#teaches"/>
-        <Class IRI="#Course"/>
-    </ObjectPropertyRange>
+    <DisjointClasses>
+        <Class IRI="#Department"/>
+        <Class IRI="#Faculty"/>
+        <Class IRI="#Research_Group"/>
+    </DisjointClasses>
+    <DisjointClasses><Class IRI="#Staff"/><Class IRI="#Student"/></DisjointClasses>
+    <DisjointClasses><Class IRI="#Undergraduate"/><Class IRI="#Graduate"/></DisjointClasses>
+    <DisjointClasses><Class IRI="#Classroom"/><Class IRI="#Lab"/></DisjointClasses>
+
+    <!-- Class assertions -->
+    <ClassAssertion><Class IRI="#Faculty"/><NamedIndividual IRI="#Faculty_of_Science"/></ClassAssertion>
+    <ClassAssertion><Class IRI="#Department"/><NamedIndividual IRI="#ComputerScience_Dept"/></ClassAssertion>
+    <ClassAssertion><Class IRI="#Department"/><NamedIndividual IRI="#Mathematics_Dept"/></ClassAssertion>
+    <ClassAssertion><Class IRI="#Research_Group"/><NamedIndividual IRI="#AI_Research_Group"/></ClassAssertion>
+    <ClassAssertion><Class IRI="#Professor"/><NamedIndividual IRI="#Prof_Smith"/></ClassAssertion>
+    <ClassAssertion><Class IRI="#Professor"/><NamedIndividual IRI="#Prof_Jones"/></ClassAssertion>
+    <ClassAssertion><Class IRI="#Lecturer"/><NamedIndividual IRI="#Lecturer_Brown"/></ClassAssertion>
+    <ClassAssertion><Class IRI="#Dean"/><NamedIndividual IRI="#Dean_White"/></ClassAssertion>
+    <ClassAssertion><Class IRI="#Undergraduate"/><NamedIndividual IRI="#Alice"/></ClassAssertion>
+    <ClassAssertion><Class IRI="#Graduate"/><NamedIndividual IRI="#Bob"/></ClassAssertion>
+    <ClassAssertion><Class IRI="#PhD_Student"/><NamedIndividual IRI="#Carol"/></ClassAssertion>
+    <ClassAssertion><Class IRI="#Course"/><NamedIndividual IRI="#Intro_Programming"/></ClassAssertion>
+    <ClassAssertion><Class IRI="#Course"/><NamedIndividual IRI="#Data_Structures"/></ClassAssertion>
+    <ClassAssertion><Class IRI="#Course"/><NamedIndividual IRI="#Advanced_Algorithms"/></ClassAssertion>
+    <ClassAssertion><Class IRI="#Course"/><NamedIndividual IRI="#Calculus_I"/></ClassAssertion>
+    <ClassAssertion><Class IRI="#Classroom"/><NamedIndividual IRI="#Room_A101"/></ClassAssertion>
+    <ClassAssertion><Class IRI="#Lab"/><NamedIndividual IRI="#Lab_B202"/></ClassAssertion>
+
+    <!-- Object property assertions -->
+    <ObjectPropertyAssertion><ObjectProperty IRI="#isPartOf"/><NamedIndividual IRI="#ComputerScience_Dept"/><NamedIndividual IRI="#Faculty_of_Science"/></ObjectPropertyAssertion>
+    <ObjectPropertyAssertion><ObjectProperty IRI="#isPartOf"/><NamedIndividual IRI="#Mathematics_Dept"/><NamedIndividual IRI="#Faculty_of_Science"/></ObjectPropertyAssertion>
+    <ObjectPropertyAssertion><ObjectProperty IRI="#isPartOf"/><NamedIndividual IRI="#AI_Research_Group"/><NamedIndividual IRI="#ComputerScience_Dept"/></ObjectPropertyAssertion>
+    <ObjectPropertyAssertion><ObjectProperty IRI="#headedBy"/><NamedIndividual IRI="#ComputerScience_Dept"/><NamedIndividual IRI="#Dean_White"/></ObjectPropertyAssertion>
+    <ObjectPropertyAssertion><ObjectProperty IRI="#teaches"/><NamedIndividual IRI="#Prof_Smith"/><NamedIndividual IRI="#Intro_Programming"/></ObjectPropertyAssertion>
+    <ObjectPropertyAssertion><ObjectProperty IRI="#teaches"/><NamedIndividual IRI="#Prof_Smith"/><NamedIndividual IRI="#Data_Structures"/></ObjectPropertyAssertion>
+    <ObjectPropertyAssertion><ObjectProperty IRI="#worksIn"/><NamedIndividual IRI="#Prof_Smith"/><NamedIndividual IRI="#ComputerScience_Dept"/></ObjectPropertyAssertion>
+    <ObjectPropertyAssertion><ObjectProperty IRI="#teaches"/><NamedIndividual IRI="#Prof_Jones"/><NamedIndividual IRI="#Calculus_I"/></ObjectPropertyAssertion>
+    <ObjectPropertyAssertion><ObjectProperty IRI="#worksIn"/><NamedIndividual IRI="#Prof_Jones"/><NamedIndividual IRI="#Mathematics_Dept"/></ObjectPropertyAssertion>
+    <ObjectPropertyAssertion><ObjectProperty IRI="#worksIn"/><NamedIndividual IRI="#Lecturer_Brown"/><NamedIndividual IRI="#Mathematics_Dept"/></ObjectPropertyAssertion>
+    <ObjectPropertyAssertion><ObjectProperty IRI="#worksIn"/><NamedIndividual IRI="#Dean_White"/><NamedIndividual IRI="#ComputerScience_Dept"/></ObjectPropertyAssertion>
+    <ObjectPropertyAssertion><ObjectProperty IRI="#enrolledIn"/><NamedIndividual IRI="#Alice"/><NamedIndividual IRI="#Intro_Programming"/></ObjectPropertyAssertion>
+    <ObjectPropertyAssertion><ObjectProperty IRI="#advisedBy"/><NamedIndividual IRI="#Alice"/><NamedIndividual IRI="#Prof_Smith"/></ObjectPropertyAssertion>
+    <ObjectPropertyAssertion><ObjectProperty IRI="#enrolledIn"/><NamedIndividual IRI="#Bob"/><NamedIndividual IRI="#Data_Structures"/></ObjectPropertyAssertion>
+    <ObjectPropertyAssertion><ObjectProperty IRI="#advisedBy"/><NamedIndividual IRI="#Bob"/><NamedIndividual IRI="#Prof_Jones"/></ObjectPropertyAssertion>
+    <ObjectPropertyAssertion><ObjectProperty IRI="#enrolledIn"/><NamedIndividual IRI="#Carol"/><NamedIndividual IRI="#Calculus_I"/></ObjectPropertyAssertion>
+    <ObjectPropertyAssertion><ObjectProperty IRI="#advisedBy"/><NamedIndividual IRI="#Carol"/><NamedIndividual IRI="#Prof_Jones"/></ObjectPropertyAssertion>
+    <ObjectPropertyAssertion><ObjectProperty IRI="#memberOf"/><NamedIndividual IRI="#Carol"/><NamedIndividual IRI="#AI_Research_Group"/></ObjectPropertyAssertion>
+    <ObjectPropertyAssertion><ObjectProperty IRI="#locatedIn"/><NamedIndividual IRI="#Intro_Programming"/><NamedIndividual IRI="#Room_A101"/></ObjectPropertyAssertion>
+    <ObjectPropertyAssertion><ObjectProperty IRI="#hasPrerequisite"/><NamedIndividual IRI="#Data_Structures"/><NamedIndividual IRI="#Intro_Programming"/></ObjectPropertyAssertion>
+    <ObjectPropertyAssertion><ObjectProperty IRI="#locatedIn"/><NamedIndividual IRI="#Data_Structures"/><NamedIndividual IRI="#Lab_B202"/></ObjectPropertyAssertion>
+    <ObjectPropertyAssertion><ObjectProperty IRI="#hasPrerequisite"/><NamedIndividual IRI="#Advanced_Algorithms"/><NamedIndividual IRI="#Data_Structures"/></ObjectPropertyAssertion>
+
+    <!-- Data property assertions -->
+    <DataPropertyAssertion><DataProperty IRI="#hasFullName"/><NamedIndividual IRI="#Prof_Smith"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">John Smith</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasEmail"/><NamedIndividual IRI="#Prof_Smith"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">smith@university.edu</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasFullName"/><NamedIndividual IRI="#Prof_Jones"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Mary Jones</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasEmail"/><NamedIndividual IRI="#Prof_Jones"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">jones@university.edu</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasFullName"/><NamedIndividual IRI="#Lecturer_Brown"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Robert Brown</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasEmail"/><NamedIndividual IRI="#Lecturer_Brown"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">brown@university.edu</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasFullName"/><NamedIndividual IRI="#Dean_White"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Emily White</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasEmail"/><NamedIndividual IRI="#Dean_White"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">white@university.edu</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasFullName"/><NamedIndividual IRI="#Alice"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Alice Green</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasEmail"/><NamedIndividual IRI="#Alice"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">alice@student.university.edu</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasStudentID"/><NamedIndividual IRI="#Alice"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1001</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasGPA"/><NamedIndividual IRI="#Alice"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">3.8</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasYear"/><NamedIndividual IRI="#Alice"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasFullName"/><NamedIndividual IRI="#Bob"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Bob Taylor</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasEmail"/><NamedIndividual IRI="#Bob"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">bob@student.university.edu</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasStudentID"/><NamedIndividual IRI="#Bob"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1002</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasGPA"/><NamedIndividual IRI="#Bob"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">3.5</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasYear"/><NamedIndividual IRI="#Bob"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasFullName"/><NamedIndividual IRI="#Carol"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Carol King</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasEmail"/><NamedIndividual IRI="#Carol"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">carol@student.university.edu</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasStudentID"/><NamedIndividual IRI="#Carol"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1003</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasGPA"/><NamedIndividual IRI="#Carol"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">3.9</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasYear"/><NamedIndividual IRI="#Carol"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">3</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasCredits"/><NamedIndividual IRI="#Intro_Programming"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">6</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasCredits"/><NamedIndividual IRI="#Data_Structures"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">6</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasCredits"/><NamedIndividual IRI="#Advanced_Algorithms"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">9</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasCredits"/><NamedIndividual IRI="#Calculus_I"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">9</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasCapacity"/><NamedIndividual IRI="#Room_A101"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">100</Literal></DataPropertyAssertion>
+    <DataPropertyAssertion><DataProperty IRI="#hasCapacity"/><NamedIndividual IRI="#Lab_B202"/><Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">30</Literal></DataPropertyAssertion>
+
+    <!-- Object property characteristics -->
+    <InverseObjectProperties><ObjectProperty IRI="#isTaughtBy"/><ObjectProperty IRI="#teaches"/></InverseObjectProperties>
+    <InverseObjectProperties><ObjectProperty IRI="#hasStudent"/><ObjectProperty IRI="#enrolledIn"/></InverseObjectProperties>
+    <InverseObjectProperties><ObjectProperty IRI="#advises"/><ObjectProperty IRI="#advisedBy"/></InverseObjectProperties>
+    <TransitiveObjectProperty><ObjectProperty IRI="#isPartOf"/></TransitiveObjectProperty>
+    <TransitiveObjectProperty><ObjectProperty IRI="#hasPrerequisite"/></TransitiveObjectProperty>
+    <FunctionalObjectProperty><ObjectProperty IRI="#headedBy"/></FunctionalObjectProperty>
     <SubObjectPropertyOf>
         <ObjectPropertyChain>
             <ObjectProperty IRI="#worksIn"/>
@@ -161,39 +210,63 @@
         </ObjectPropertyChain>
         <ObjectProperty IRI="#worksIn"/>
     </SubObjectPropertyOf>
-    <FunctionalDataProperty>
-        <DataProperty IRI="#hasFullName"/>
-    </FunctionalDataProperty>
-    <FunctionalDataProperty>
-        <DataProperty IRI="#hasStudentID"/>
-    </FunctionalDataProperty>
-    <DataPropertyDomain>
-        <DataProperty IRI="#hasCredits"/>
-        <Class IRI="#Course"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#hasFullName"/>
-        <Class IRI="#Person"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#hasStudentID"/>
-        <Class IRI="#Student"/>
-    </DataPropertyDomain>
-    <DataPropertyRange>
-        <DataProperty IRI="#hasCredits"/>
-        <Datatype abbreviatedIRI="xsd:integer"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#hasFullName"/>
-        <Datatype abbreviatedIRI="xsd:string"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#hasStudentID"/>
-        <Datatype abbreviatedIRI="xsd:integer"/>
-    </DataPropertyRange>
+
+    <!-- Object property domains and ranges -->
+    <ObjectPropertyDomain><ObjectProperty IRI="#teaches"/><Class IRI="#Professor"/></ObjectPropertyDomain>
+    <ObjectPropertyRange><ObjectProperty IRI="#teaches"/><Class IRI="#Course"/></ObjectPropertyRange>
+    <ObjectPropertyDomain><ObjectProperty IRI="#isTaughtBy"/><Class IRI="#Course"/></ObjectPropertyDomain>
+    <ObjectPropertyRange><ObjectProperty IRI="#isTaughtBy"/><Class IRI="#Professor"/></ObjectPropertyRange>
+    <ObjectPropertyDomain><ObjectProperty IRI="#enrolledIn"/><Class IRI="#Student"/></ObjectPropertyDomain>
+    <ObjectPropertyRange><ObjectProperty IRI="#enrolledIn"/><Class IRI="#Course"/></ObjectPropertyRange>
+    <ObjectPropertyDomain><ObjectProperty IRI="#hasStudent"/><Class IRI="#Course"/></ObjectPropertyDomain>
+    <ObjectPropertyRange><ObjectProperty IRI="#hasStudent"/><Class IRI="#Student"/></ObjectPropertyRange>
+    <ObjectPropertyDomain><ObjectProperty IRI="#advisedBy"/><Class IRI="#Student"/></ObjectPropertyDomain>
+    <ObjectPropertyRange><ObjectProperty IRI="#advisedBy"/><Class IRI="#Professor"/></ObjectPropertyRange>
+    <ObjectPropertyDomain><ObjectProperty IRI="#advises"/><Class IRI="#Professor"/></ObjectPropertyDomain>
+    <ObjectPropertyRange><ObjectProperty IRI="#advises"/><Class IRI="#Student"/></ObjectPropertyRange>
+    <ObjectPropertyDomain><ObjectProperty IRI="#isPartOf"/><Class IRI="#Organization"/></ObjectPropertyDomain>
+    <ObjectPropertyRange><ObjectProperty IRI="#isPartOf"/><Class IRI="#Organization"/></ObjectPropertyRange>
+    <ObjectPropertyDomain><ObjectProperty IRI="#worksIn"/><Class IRI="#Staff"/></ObjectPropertyDomain>
+    <ObjectPropertyRange><ObjectProperty IRI="#worksIn"/><Class IRI="#Organization"/></ObjectPropertyRange>
+    <ObjectPropertyDomain><ObjectProperty IRI="#hasPrerequisite"/><Class IRI="#Course"/></ObjectPropertyDomain>
+    <ObjectPropertyRange><ObjectProperty IRI="#hasPrerequisite"/><Class IRI="#Course"/></ObjectPropertyRange>
+    <ObjectPropertyDomain><ObjectProperty IRI="#locatedIn"/><Class IRI="#Course"/></ObjectPropertyDomain>
+    <ObjectPropertyRange><ObjectProperty IRI="#locatedIn"/><Class IRI="#Location"/></ObjectPropertyRange>
+    <ObjectPropertyDomain><ObjectProperty IRI="#memberOf"/><Class IRI="#Person"/></ObjectPropertyDomain>
+    <ObjectPropertyRange><ObjectProperty IRI="#memberOf"/><Class IRI="#Research_Group"/></ObjectPropertyRange>
+    <ObjectPropertyDomain><ObjectProperty IRI="#headedBy"/><Class IRI="#Department"/></ObjectPropertyDomain>
+    <ObjectPropertyRange><ObjectProperty IRI="#headedBy"/><Class IRI="#Dean"/></ObjectPropertyRange>
+
+    <!-- Data property characteristics -->
+    <FunctionalDataProperty><DataProperty IRI="#hasFullName"/></FunctionalDataProperty>
+    <FunctionalDataProperty><DataProperty IRI="#hasEmail"/></FunctionalDataProperty>
+    <FunctionalDataProperty><DataProperty IRI="#hasStudentID"/></FunctionalDataProperty>
+    <FunctionalDataProperty><DataProperty IRI="#hasGPA"/></FunctionalDataProperty>
+
+    <!-- Data property domains and ranges -->
+    <DataPropertyDomain><DataProperty IRI="#hasFullName"/><Class IRI="#Person"/></DataPropertyDomain>
+    <DataPropertyRange><DataProperty IRI="#hasFullName"/><Datatype abbreviatedIRI="xsd:string"/></DataPropertyRange>
+    <DataPropertyDomain><DataProperty IRI="#hasEmail"/><Class IRI="#Person"/></DataPropertyDomain>
+    <DataPropertyRange><DataProperty IRI="#hasEmail"/><Datatype abbreviatedIRI="xsd:string"/></DataPropertyRange>
+    <DataPropertyDomain><DataProperty IRI="#hasStudentID"/><Class IRI="#Student"/></DataPropertyDomain>
+    <DataPropertyRange><DataProperty IRI="#hasStudentID"/><Datatype abbreviatedIRI="xsd:integer"/></DataPropertyRange>
+    <DataPropertyDomain><DataProperty IRI="#hasGPA"/><Class IRI="#Student"/></DataPropertyDomain>
+    <DataPropertyRange><DataProperty IRI="#hasGPA"/><Datatype abbreviatedIRI="xsd:decimal"/></DataPropertyRange>
+    <DataPropertyDomain><DataProperty IRI="#hasYear"/><Class IRI="#Student"/></DataPropertyDomain>
+    <DataPropertyRange><DataProperty IRI="#hasYear"/><Datatype abbreviatedIRI="xsd:integer"/></DataPropertyRange>
+    <DataPropertyDomain><DataProperty IRI="#hasCredits"/><Class IRI="#Course"/></DataPropertyDomain>
+    <DataPropertyRange><DataProperty IRI="#hasCredits"/><Datatype abbreviatedIRI="xsd:integer"/></DataPropertyRange>
+    <DataPropertyDomain><DataProperty IRI="#hasCapacity"/><Class IRI="#Location"/></DataPropertyDomain>
+    <DataPropertyRange><DataProperty IRI="#hasCapacity"/><Datatype abbreviatedIRI="xsd:integer"/></DataPropertyRange>
+
+    <!-- Labels -->
+    <AnnotationAssertion><AnnotationProperty abbreviatedIRI="rdfs:label"/><IRI>#Person</IRI><Literal>Person</Literal></AnnotationAssertion>
+    <AnnotationAssertion><AnnotationProperty abbreviatedIRI="rdfs:label"/><IRI>#Staff</IRI><Literal>Staff</Literal></AnnotationAssertion>
+    <AnnotationAssertion><AnnotationProperty abbreviatedIRI="rdfs:label"/><IRI>#Professor</IRI><Literal>Professor</Literal></AnnotationAssertion>
+    <AnnotationAssertion><AnnotationProperty abbreviatedIRI="rdfs:label"/><IRI>#Student</IRI><Literal>Student</Literal></AnnotationAssertion>
+    <AnnotationAssertion><AnnotationProperty abbreviatedIRI="rdfs:label"/><IRI>#Course</IRI><Literal>Course</Literal></AnnotationAssertion>
 </Ontology>
 
 
 
-<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
-
+<!-- Generated for Yasir Aziz - Knowledge Representation course -->
